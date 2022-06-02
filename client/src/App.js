@@ -2,7 +2,8 @@ import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -28,9 +29,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Routes>
-            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-          </Routes>
+          <Navbar/>
+          
         </>
       </Router>
     </ApolloProvider>
