@@ -1,8 +1,17 @@
 const { AuthenticationError } = require('apollo-server-express');
+const { User, Item } = require('../models');
+
 const resolvers = {
     Query: {
-      
+        items: async () => {
+            return Item.find();
+        },
+        users: async () => {
+            return User.find()
+                .select ('-__v');
+        }
     },
+
     Mutation: {
       addUser: async () => {
   
@@ -25,6 +34,8 @@ const resolvers = {
       }
     }
   };
+
+
 
 
 module.exports = resolvers;

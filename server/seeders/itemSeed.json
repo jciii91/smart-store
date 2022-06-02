@@ -1,0 +1,14 @@
+[
+    {
+        "category": "Speakers",
+        "name": "Echo Dot",
+        "description": " the speaker you control with your voice",
+        "price": 50
+    },
+    {
+        "category": "Speakers",
+        "name": "Google Nest",
+        "description": " controls your smart home privately and securely",
+        "price": 50
+    }
+]
