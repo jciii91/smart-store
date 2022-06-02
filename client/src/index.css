@@ -5,7 +5,7 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-.home, .check-out, .login, .products, .search, .sign-up{
+.home, .check-out, .products, .search{
   display: flex;
   height: 90vh;
   align-items: center;
@@ -32,15 +32,6 @@
   font-size: 100px;
 }
 
-.login {
-  background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
 .products {
   background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
   background-position: center;
@@ -50,14 +41,6 @@
   font-size: 100px;
 }
 
-.sign-up {
-  background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
 
 .search {
   background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
