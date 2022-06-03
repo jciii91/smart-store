@@ -25,3 +25,7 @@
 .expandOpen{
     transform: "rotate(180deg)"
 }
+
+img{
+    height: 315px !important;
+}

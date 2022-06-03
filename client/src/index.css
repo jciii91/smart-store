@@ -5,7 +5,7 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-.home, .check-out, .products, .search{
+.home, .cart, .products, .search{
   display: flex;
   height: 90vh;
   align-items: center;
@@ -23,7 +23,7 @@
   font-size: 100px;
 }
 
-.check-out {
+.cart {
   background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
   background-position: center;
   background-size: cover;
@@ -49,4 +49,38 @@
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
+}
+
+.footer {
+
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  color: white;
+  height: 60px;
+  border-top: 1px solid #E7E7E7;
+  text-align: center;
+  padding: 20px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.productContainer{
+  padding: 2rem;
+  text-align: center;
+}
+
+.filters{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 3rem;
+  text-align: end;
+}
+
+.cartImg{
+  height: 100px !important;
+}
+
+.shopTitle{
+  padding-top: 2rem !important;
 }
