@@ -8,3 +8,17 @@ export const QUERY_ME = gql`
     }
   }
 `
+
+export const QUERY_ITEMS = gql`
+  {
+    items {
+      _id
+      category
+      name
+      description
+      price
+      rating
+      filename
+    }
+  }
+`
