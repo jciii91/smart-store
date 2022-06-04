@@ -42,7 +42,7 @@ const Home = () => {
             id: 4,
             title: 'Biometric Door Lock',
             categoryF: 'Biometric Door Lock',
-            category: 'SmartDoorLock',
+            category: 'SmartDoorLocks',
             price: 400,
             rating: 4,
             description: "This is an incredible speaker perfect to...",
@@ -90,8 +90,10 @@ const Home = () => {
                 { 
                     newProducts.map((product) => (
                         <Grid item xs={12} sm={6} md={4}>
-                            <ProductCard key={product.id} 
-                            product={product}/>
+                            <React.Fragment key={product.id}>
+                                <ProductCard  
+                                product={product}/>
+                            </React.Fragment>
                         </Grid>
                     ))
                 }

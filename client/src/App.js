@@ -12,6 +12,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 import AppNavbar from './components/Navbar/NavbarB';
+import Checkout from './pages/CheckOut/CheckOut';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,6 +47,7 @@ function App() {
             <Route path='/product'  exact element={<Product/>}/>
             <Route path='/sign-up'  exact element={<SignUp/>}/>
             <Route path='/cart'  exact element={<Cart/>}/>
+            <Route path='/checkout'  exact element={<Checkout/>}/>
           </Routes>
           <Footer/>
         </>

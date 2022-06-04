@@ -49,7 +49,7 @@ export default function ProductCard({
         title={title}
         subheader={categoryF}
       />
-      <Link to="/product">
+      <Link className="modLink" to="/product">
           View Details
       </Link>
 
