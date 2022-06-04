@@ -2,14 +2,17 @@ import React from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { Grid } from "@mui/material";
 import './Home.css';
-
+import { useParams } from 'react-router-dom';
 
 const Home = () => {
+    let {cat} = useParams();
+
     const Products = [
         {
             id: 1,
             title: 'Smart Speaker 2000',
-            category: 'Smart Speakers & Displays',
+            categoryF: 'Smart Speakers & Displays',
+            category: 'SmartSpeakers&Displays',
             price: 8.99,
             rating: 3,
             description: "This is an incredible speaker perfect to...",
@@ -18,7 +21,8 @@ const Home = () => {
         {
             id: 2,
             title: 'LED RGBCW',
-            category: 'Smart Lighting',
+            categoryF: 'Smart Lighting',
+            category: 'SmartLighting',
             price: 15,
             rating: 4,
             description: "This is an incredible speaker perfect to...",
@@ -27,7 +31,8 @@ const Home = () => {
         {
             id: 3,
             title: 'Smart Speaker 2000',
-            category: 'Smart Speakers & Displays',
+            categoryF: 'Smart Speakers & Displays',
+            category: 'SmartSpeakers&Displays',
             price: 349.5,
             rating: 5,
             description: "This is an incredible speaker perfect to...",
@@ -36,7 +41,8 @@ const Home = () => {
         {
             id: 4,
             title: 'Biometric Door Lock',
-            category: 'Smart Door Lock',
+            categoryF: 'Biometric Door Lock',
+            category: 'SmartDoorLock',
             price: 400,
             rating: 4,
             description: "This is an incredible speaker perfect to...",
@@ -45,7 +51,8 @@ const Home = () => {
         {
             id: 5,
             title: 'Smart Speaker 2000',
-            category: 'Smart Speakers & Displays',
+            categoryF: 'Smart Speakers & Displays',
+            category: 'SmartSpeakers&Displays',
             price: 899,
             rating: 4,
             description: "This is an incredible speaker perfect to...",
@@ -54,7 +61,8 @@ const Home = () => {
         {
             id: 6,
             title: 'Smart Speaker 2000',
-            category: 'Smart Speakers & Displays',
+            categoryF: 'Smart Speakers & Displays',
+            category: 'SmartSpeakers&Displays',
             price: 899,
             rating: 5,
             description: "This is an incredible speaker perfect to...",
@@ -63,14 +71,25 @@ const Home = () => {
         
     ];
 
+    function filterasync(pCategory) {
+        if(pCategory === null || pCategory === undefined){
+           return Products;
+        }else{
+            return Products.filter(product => product.category === pCategory)
+        }
+    }
+
+    let newProducts = filterasync(cat);
+    console.log(newProducts.length);
+
     return(
         <>
             <h1 className="home">Home</h1>
 
             <div className="rootH">
             <Grid container rowSpacing={1} columnSpacing={1}>
-                {
-                    Products.map((product) => (
+                { 
+                    newProducts.map((product) => (
                         <Grid item xs={12} sm={6} md={4}>
                             <ProductCard key={product.id} 
                             product={product}/>
@@ -78,6 +97,7 @@ const Home = () => {
                     ))
                 }
             </Grid>
+            
             </div>
         </>
     )

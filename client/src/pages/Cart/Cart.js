@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Container, Form, Image, ListGroup, Row } from "react-bootstrap";
 
 const Cart = () => {

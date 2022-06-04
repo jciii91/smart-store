@@ -25,7 +25,7 @@ const ExpandMore = styled((props) => {
   }));
 
 export default function ProductCard({
-    product: { id, title, category, price, rating, description, img},
+    product: { id, title, categoryF, category , price, rating, description, img},
 }) {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -46,7 +46,7 @@ export default function ProductCard({
           </Typography>
         }
         title={title}
-        subheader={category}
+        subheader={categoryF}
       />
       <CardMedia className="media"
         component="img"

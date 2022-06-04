@@ -12,6 +12,7 @@ import Product from './pages/Product/Product';
 import SignUp from './pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
+import AppNavbar from './components/Navbar/NavbarB';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,9 +38,11 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar/>
+          <AppNavbar/>
           <Routes>
             <Route path='/'  exact element={<Home/>}/>
+            <Route path='/:cat'  exact element={<Home/>}/>
+            <Route path='/home'  exact element={<Home/>}/>
             <Route path='/login'  exact element={<Login/>}/>
             <Route path='/products'  exact element={<Product/>}/>
             <Route path='/sign-up'  exact element={<SignUp/>}/>
