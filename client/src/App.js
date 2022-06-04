@@ -3,7 +3,6 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar/Navbar';
 
 //import pages
 import Home from './pages/Home/Home';
@@ -44,7 +43,7 @@ function App() {
             <Route path='/:cat'  exact element={<Home/>}/>
             <Route path='/home'  exact element={<Home/>}/>
             <Route path='/login'  exact element={<Login/>}/>
-            <Route path='/products'  exact element={<Product/>}/>
+            <Route path='/product'  exact element={<Product/>}/>
             <Route path='/sign-up'  exact element={<SignUp/>}/>
             <Route path='/cart'  exact element={<Cart/>}/>
           </Routes>

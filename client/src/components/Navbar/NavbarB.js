@@ -95,6 +95,7 @@ const AppNavbar = () => {
                     )
                 })}
             </NavDropdown>
+            <Nav.Link href="/cart">Cart</Nav.Link>
             <Nav.Link href="sign-up">Sign Up/Login</Nav.Link>
         </Nav>
         </Navbar.Collapse>

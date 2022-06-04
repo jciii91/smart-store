@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './ProductCard.css'
+import { Link } from 'react-router-dom';
 
 
 const ExpandMore = styled((props) => {
@@ -48,6 +49,10 @@ export default function ProductCard({
         title={title}
         subheader={categoryF}
       />
+      <Link to="/product">
+          View Details
+      </Link>
+
       <CardMedia className="media"
         component="img"
         height="200"
@@ -60,8 +65,8 @@ export default function ProductCard({
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <AddShoppingCartIcon />
+        <IconButton aria-label="view">
+          <AddShoppingCartIcon href="/product"/>
         </IconButton>
         
         {Array(rating)

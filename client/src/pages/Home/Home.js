@@ -80,7 +80,6 @@ const Home = () => {
     }
 
     let newProducts = filterasync(cat);
-    console.log(newProducts.length);
 
     return(
         <>
