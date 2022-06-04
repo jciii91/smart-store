@@ -1,13 +1,90 @@
-body {
+*{
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.home, .cart, .products, .search{
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  max-height: 70vh;
+}
+
+.home {
+  background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
+.cart {
+  background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
+.products {
+  background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
+
+.search {
+  background-image: url('https://www.teahub.io/photos/full/73-738314_1920x1080-clouds-sky-night-nature-sea-scenery-sceneries.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
+.footer {
+
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  color: white;
+  height: 60px;
+  border-top: 1px solid #E7E7E7;
+  text-align: center;
+  padding: 20px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.productContainer{
+  padding: 2rem;
+  text-align: center;
+}
+
+.filters{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 3rem;
+  text-align: end;
+}
+
+.cartImg{
+  height: 100px !important;
+}
+
+.shopTitle{
+  padding-top: 2rem !important;
+}
+
+.bg-dark {
+  background-color: #1a1c1f!important;
 }
