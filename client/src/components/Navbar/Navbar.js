@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Dropdown  from '../Dropdown/Dropdown';
+import Auth from '../../utils/auth';
 
 function Navbar () {
     const [click, setClick] = useState(false);
@@ -10,6 +10,10 @@ function Navbar () {
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    };
 
     const onMouseEnter = () => {
         if (window.innerWidth < 960) {
@@ -32,7 +36,7 @@ function Navbar () {
         <nav className="navbar">
             <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
                 <i className="fas fa-store"/>
-                 STORE
+                 SMART STORE
             </Link>
             <div className="menu-icon" onClick={handleClick}>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
@@ -54,19 +58,16 @@ function Navbar () {
                     {dropdown && <Dropdown/>}
                 </li>
                 <li className="nav-item">
-                    <Link to='/about' className="nav-links" 
-                    onClick={closeMobileMenu}>
-                        About us
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link to='/sign-up' className="nav-links-mobile" 
-                    onClick={closeMobileMenu}>
-                        Sign up
-                    </Link>
+                {Auth.loggedIn() ? (
+                <>
+                <Link to="cart" className="nav-links">Cart</Link>
+                <Link to="/" onClick={logout} className="nav-links">Logout</Link>
+                </>
+                ) : (
+                    <Link to="sign-up" className="nav-links">Sign Up/Login</Link>
+                )}
                 </li>
             </ul>
-            <Button/>
         </nav>
         </>
     )

@@ -5,7 +5,6 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { StoreProvider } from "./utils/GlobalState";
-import Navbar from './components/Navbar/Navbar';
 
 //import pages
 import Home from './pages/Home/Home';
@@ -14,7 +13,7 @@ import Product from './pages/Product/Product';
 import SignUp from './pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
-import AppNavbar from './components/Navbar/NavbarB';
+import Navbar from './components/Navbar/Navbar';
 import Checkout from './pages/CheckOut/CheckOut';
 
 const httpLink = createHttpLink({
@@ -42,7 +41,7 @@ function App() {
       <Router>
         <>
           <StoreProvider>
-          <AppNavbar/>
+          <Navbar/>
           <Routes>
             <Route path='/'  exact element={<Home/>}/>
             <Route path='/:cat'  exact element={<Home/>}/>

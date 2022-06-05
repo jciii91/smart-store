@@ -49,20 +49,20 @@ export default function ProductCard({
         _id: _id,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
-      idbPromise('cart', 'put', { _id, name, category, category , price, rating, description, filename, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 });
+      idbPromise('cart', 'put', { _id, name, category , price, rating, description, filename, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 });
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { _id, name, category, category , price, rating, description, filename, purchaseQuantity: 1 }
+        product: { _id, name, category , price, rating, description, filename, purchaseQuantity: 1 }
       });
-      idbPromise('cart', 'put', { _id, name, category, category , price, rating, description, filename, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { _id, name, category , price, rating, description, filename, purchaseQuantity: 1 });
     }
   };
 
   const updateProduct = () => {
     dispatch({
       type: UPDATE_PRODUCTS,
-      product: { _id, name, category, category , price, rating, description, filename, purchaseQuantity: 1 }
+      product: { _id, name, category, price, rating, description, filename, purchaseQuantity: 1 }
     })
   }
 
@@ -79,7 +79,7 @@ export default function ProductCard({
           </Typography>
         }
         name={name}
-        subheader={category}
+        subheader={name}
       />
       <Link className="modLink" to="/product" onClick={updateProduct}>
           View Details
