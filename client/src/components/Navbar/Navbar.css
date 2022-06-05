@@ -3,8 +3,7 @@
     display: flex;
     justify-content: space-around;
   }
-  
-  /* .navbar {
+   .navbar {
       background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%) !important;
       height: 80px !important;
       display: flex !important;
@@ -153,4 +152,4 @@
       button {
         display: none !important;
       }
-    } */
+    } 
