@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Col, Container, Form, Image, ListGroup, Row } from "react-bootstrap";
 import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
+import { ADD_MULTIPLE_TO_CART, REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 const Cart = () => {
@@ -19,12 +19,52 @@ const Cart = () => {
 
   const cart = state.cart;
 
+  function countItems() {
+    let sum = 0;
+    state.cart.forEach(item => {
+      sum += item.purchaseQuantity;
+    });
+    return sum;
+  }
+
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
       sum += item.price * item.purchaseQuantity;
     });
     return sum.toFixed(2);
+  }
+
+  function updateCartQuantity(operation, product) {
+    if (operation === 'plus') {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        id: product.id,
+        purchaseQuantity: parseInt(product.purchaseQuantity) + 1
+      });
+      idbPromise('cart', 'put', { ...product, purchaseQuantity: parseInt(product.purchaseQuantity) + 1 });
+    } else if (operation === 'minus' && parseInt(product.purchaseQuantity) > 1) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        id: product.id,
+        purchaseQuantity: parseInt(product.purchaseQuantity) - 1
+      });
+      idbPromise('cart', 'put', { ...product, purchaseQuantity: parseInt(product.purchaseQuantity) - 1 });
+    } else {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        id: product.id,
+      });
+      idbPromise('cart', 'delete', { ...product });
+    }
+  }
+
+  function removeCartItem(product) {
+    dispatch({
+      type: REMOVE_FROM_CART,
+      id: product.id,
+    });
+    idbPromise('cart', 'delete', { ...product });
   }
 
   return (
@@ -50,13 +90,15 @@ const Cart = () => {
                 <Col md={2}>
                   <Button
                     type='button'
-                    variant='light'>
+                    variant='light'
+                    onClick={() => updateCartQuantity('minus',prod)}>
                       <i className='fas fa-minus'></i>
                   </Button>
                   <span>  {prod.purchaseQuantity}   </span>
                   <Button
                     type='button'
-                    variant='light'>
+                    variant='light'
+                    onClick={() => updateCartQuantity('plus',prod)}>
                       <i className='fas fa-plus'></i>
                   </Button>
                 </Col>
@@ -64,8 +106,9 @@ const Cart = () => {
                   <Button
                     type="button"
                     variant="light"
+                    onClick={() => removeCartItem(prod)}
                   >
-                    <i class="fas fa-trash-alt" fontSize="20px"></i>
+                    <i className="fas fa-trash-alt" fontSize="20px"></i>
                   </Button>
                 </Col>
               </Row>
@@ -74,8 +117,8 @@ const Cart = () => {
         </ListGroup>
       </div>
       <div className="filters summary">
-        <span className="title">Subtotal ({cart.length}) items</span>
-        <span style={{ fontWeight: 700, fontSize: 20 }}>Total: ${calculateTotal}</span>
+        <p className="title">Subtotal ({countItems()}) items</p>
+        <p style={{ fontWeight: 700, fontSize: 20 }}>Total: ${calculateTotal()}</p>
         <Button type="button" disabled={cart.length === 0}>
           Proceed to Checkout
         </Button>
