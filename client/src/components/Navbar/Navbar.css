@@ -1,6 +1,7 @@
 .dropdown-menu.show {
     width: auto !important;
-    display: block;
+    display: flex;
+    justify-content: space-around;
   }
   
   /* .navbar {

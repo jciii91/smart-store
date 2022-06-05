@@ -11,7 +11,7 @@ import Product from './pages/Product/Product';
 import SignUp from './pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
-import AppNavbar from './components/Navbar/NavbarB';
+import Navbar from './components/Navbar/Navbar';
 import Checkout from './pages/CheckOut/CheckOut';
 
 const httpLink = createHttpLink({
@@ -38,7 +38,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <AppNavbar/>
+          <Navbar/>
           <Routes>
             <Route path='/'  exact element={<Home/>}/>
             <Route path='/:cat'  exact element={<Home/>}/>
