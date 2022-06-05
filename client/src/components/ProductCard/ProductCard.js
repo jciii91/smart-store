@@ -13,6 +13,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './ProductCard.css'
 import { Link } from 'react-router-dom';
 
+import Auth from '../../utils/auth';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -65,9 +66,11 @@ export default function ProductCard({
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="view">
-          <AddShoppingCartIcon href="/product"/>
-        </IconButton>
+        {Auth.loggedIn() ? (
+          <IconButton aria-label="view">
+            <AddShoppingCartIcon href="/product"/>
+          </IconButton>
+        ) : (<></>)}
         
         {Array(rating)
         .fill()
