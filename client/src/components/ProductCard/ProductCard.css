@@ -1,4 +1,5 @@
 .root{
+<<<<<<< HEAD
     max-width: 94% !important;
     height: 100%;
 }
@@ -8,6 +9,22 @@
 .media{
     height: 60%;
     padding-top: 1% !important;
+=======
+    max-width: 94%;
+}
+.action {
+    margin-top: " 1.5rem";
+}
+.media{
+    height: 60%;
+    padding-top: 1%;
+
+}
+
+.media{
+    max-height: 60%;
+    padding-top: 1%;
+>>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
 
 }
 
@@ -23,6 +40,7 @@
 
 img{
     height: 315px !important;
+<<<<<<< HEAD
 }
 
 .modLink{
@@ -30,4 +48,6 @@ img{
     text-decoration: none;
     background-color: transparent;
     padding-left: 1rem !important;
+=======
+>>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
 }

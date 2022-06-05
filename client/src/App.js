@@ -3,8 +3,12 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+<<<<<<< HEAD
 
 import { StoreProvider } from "./utils/GlobalState";
+=======
+import Navbar from './components/Navbar/Navbar';
+>>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
 
 //import pages
 import Home from './pages/Home/Home';
@@ -13,8 +17,11 @@ import Product from './pages/Product/Product';
 import SignUp from './pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
+<<<<<<< HEAD
 import AppNavbar from './components/Navbar/NavbarB';
 import Checkout from './pages/CheckOut/CheckOut';
+=======
+>>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
 
 const httpLink = createHttpLink({
   uri: '/graphql',
