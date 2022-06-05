@@ -11,7 +11,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './ProductCard.css'
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 
 import { useStoreContext } from '../../utils/GlobalState';
@@ -19,9 +18,6 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_PRODUCTS } from '../../utils/
 
 import Auth from '../../utils/auth';
 import { idbPromise } from "../../utils/helpers";
-=======
-
->>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -35,22 +31,14 @@ const ExpandMore = styled((props) => {
   }));
 
 export default function ProductCard({
-<<<<<<< HEAD
-    product: { id, title, categoryF, category , price, rating, description, img},
-}) {
-  const [expanded, setExpanded] = React.useState(false);
-
-=======
     product: { id, name, category, price, rating, description, filename},
 }) {
   const [expanded, setExpanded] = React.useState(false);
   
->>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-<<<<<<< HEAD
   const [state, dispatch] = useStoreContext();
 
   const addToCart = () => {
@@ -78,8 +66,6 @@ export default function ProductCard({
     })
   }
 
-=======
->>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
   return (
     <Card className="root">
       <CardHeader
@@ -92,9 +78,8 @@ export default function ProductCard({
               {price}$
           </Typography>
         }
-<<<<<<< HEAD
         title={title}
-        subheader={categoryF}
+        subheader={category}
       />
       <Link className="modLink" to="/product" onClick={updateProduct}>
           View Details
@@ -103,18 +88,8 @@ export default function ProductCard({
       <CardMedia className="media"
         component="img"
         height="200"
-        image={img}
-        alt="Speaker"
-=======
-        title={name}
-        subheader={category}
-      />
-      <CardMedia className="media"
-        component="img"
-        height="200"
-        image= {process.env.PUBLIC_URL + `/assets/${category}/${filename}.jpg`}
+        image={process.env.PUBLIC_URL + `/assets/${category}/${filename}.jpg`}
         alt={category}
->>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -122,17 +97,11 @@ export default function ProductCard({
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-<<<<<<< HEAD
         {Auth.loggedIn() ? (
           <IconButton aria-label="view" onClick={addToCart}>
             <AddShoppingCartIcon />
           </IconButton>
         ) : (<></>)}
-=======
-        <IconButton aria-label="add to favorites">
-          <AddShoppingCartIcon />
-        </IconButton>
->>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
         
         {Array(rating)
         .fill()
@@ -158,8 +127,4 @@ export default function ProductCard({
       </Collapse>
     </Card>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733
