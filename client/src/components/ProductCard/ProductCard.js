@@ -13,6 +13,9 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './ProductCard.css'
 import { Link } from 'react-router-dom';
 
+import { useStoreContext } from '../../utils/GlobalState';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_PRODUCTS } from '../../utils/actions';
+
 import Auth from '../../utils/auth';
 
 const ExpandMore = styled((props) => {
@@ -35,6 +38,22 @@ export default function ProductCard({
     setExpanded(!expanded);
   };
 
+  const [state, dispatch] = useStoreContext();
+
+  const addToCart = () => {
+    dispatch({
+      type: ADD_TO_CART,
+      product: { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 }
+    });
+  };
+
+  const updateProduct = () => {
+    dispatch({
+      type: UPDATE_PRODUCTS,
+      product: { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 }
+    })
+  }
+
   return (
     <Card className="root">
       <CardHeader
@@ -50,7 +69,7 @@ export default function ProductCard({
         title={title}
         subheader={categoryF}
       />
-      <Link className="modLink" to="/product">
+      <Link className="modLink" to="/product" onClick={updateProduct}>
           View Details
       </Link>
 
@@ -67,8 +86,8 @@ export default function ProductCard({
       </CardContent>
       <CardActions disableSpacing>
         {Auth.loggedIn() ? (
-          <IconButton aria-label="view">
-            <AddShoppingCartIcon href="/product"/>
+          <IconButton aria-label="view" onClick={addToCart}>
+            <AddShoppingCartIcon />
           </IconButton>
         ) : (<></>)}
         

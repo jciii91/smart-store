@@ -1,43 +1,45 @@
 import React from 'react';
 import { Button, Col, Container, Form, Image, ListGroup, Row } from "react-bootstrap";
+import { useStoreContext } from '../../utils/GlobalState';
 
 const Cart = () => {
+  const [state, dispatch] = useStoreContext();
 
-    const cart = [
-        {
-            id: 1,
-            name: 'Smart Speaker 2000',
-            category: 'Smart Speakers & Displays',
-            price: 8.99,
-            rating: 3,
-            qty: 10,
-            inStock: 6,
-            description: "This is an incredible speaker perfect to...",
-            img: 'https://xiaomimx.vtexassets.com/arquivos/ids/156907/Mi-Smart-Speaker-4.png?v=637601637325130000',
-        },
-        {
-            id: 2,
-            name: 'LED RGBCW',
-            category: 'Smart Lighting',
-            price: 15,
-            rating: 4,
-            qty: 10,
-            inStock: 5,
-            description: "This is an incredible speaker perfect to...",
-            img: 'https://m.media-amazon.com/images/I/61AqZPOI+2L._AC_SL1500_.jpg',
-        },
-        {
-            id: 3,
-            name: 'Smart Speaker 2000',
-            category: 'Smart Speakers & Displays',
-            price: 349.5,
-            rating: 5,
-            qty: 9,
-            inStock: 10,
-            description: "This is an incredible speaker perfect to...",
-            img: 'https://media.takealot.com/covers_images/4e0f9bfa06ed49079879f1bccb2d6b0b/s-zoom.file',
-        }     
-    ];
+  const cart = [
+      {
+          id: 1,
+          name: 'Smart Speaker 2000',
+          category: 'Smart Speakers & Displays',
+          price: 8.99,
+          rating: 3,
+          qty: 10,
+          inStock: 6,
+          description: "This is an incredible speaker perfect to...",
+          img: 'https://xiaomimx.vtexassets.com/arquivos/ids/156907/Mi-Smart-Speaker-4.png?v=637601637325130000',
+      },
+      {
+          id: 2,
+          name: 'LED RGBCW',
+          category: 'Smart Lighting',
+          price: 15,
+          rating: 4,
+          qty: 10,
+          inStock: 5,
+          description: "This is an incredible speaker perfect to...",
+          img: 'https://m.media-amazon.com/images/I/61AqZPOI+2L._AC_SL1500_.jpg',
+      },
+      {
+          id: 3,
+          name: 'Smart Speaker 2000',
+          category: 'Smart Speakers & Displays',
+          price: 349.5,
+          rating: 5,
+          qty: 9,
+          inStock: 10,
+          description: "This is an incredible speaker perfect to...",
+          img: 'https://media.takealot.com/covers_images/4e0f9bfa06ed49079879f1bccb2d6b0b/s-zoom.file',
+      }     
+  ];
 
 
   return (

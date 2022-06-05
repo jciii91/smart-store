@@ -3,8 +3,24 @@ import './Product.css';
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { CardMedia } from "@mui/material";
 
+import { useStoreContext } from '../../utils/GlobalState';
+import {
+    REMOVE_FROM_CART,
+    UPDATE_CART_QUANTITY,
+    ADD_TO_CART,
+    UPDATE_PRODUCTS,
+} from '../../utils/actions';
+
 export default function Products(){
     const [color, setColor] = useState("#80CED7");
+    const [state, dispatch] = useStoreContext();
+
+    // const addToCart = () => {
+    //     dispatch({
+    //         type: ADD_TO_CART,
+    //         product: { ...currentProduct, purchaseQuantity: 1 }
+    //     });
+    // };
 
     return(
         <Container>
@@ -13,20 +29,20 @@ export default function Products(){
                 <CardMedia className="image"
                     component="img"
                     height="200"
-                    image='https://m.media-amazon.com/images/I/61AqZPOI+2L._AC_SL1500_.jpg'
+                    image={state.product.img}
                     alt="Ligth"
                 />
                 </Col>
                 <Col className="info">
-                    <h2>LED RGBCW</h2>
+                    <h2>{state.product.title}</h2>
                     <br />
                     <br />
-                    <h4>Smart Speakers & Displays</h4>
+                    <h4>{state.product.categoryF}</h4>
                     <br />
-                    <p>This is an incredible speaker perfect to... This is an incredible speaker perfect to...</p>
+                    <p>{state.product.description}</p>
                     <Row className="buttonRow">
                     <Col style={{ textAlign: "right" }}>
-                        <p>Price: 15$</p>
+                        <p>Price: ${state.product.price}</p>
                         <a>
                         <Button id="buy" variant="primary">
                             Buy Now

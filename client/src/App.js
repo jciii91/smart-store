@@ -4,6 +4,8 @@ import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import { StoreProvider } from "./utils/GlobalState";
+
 //import pages
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
@@ -38,6 +40,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
+          <StoreProvider>
           <AppNavbar/>
           <Routes>
             <Route path='/'  exact element={<Home/>}/>
@@ -50,6 +53,7 @@ function App() {
             <Route path='/checkout'  exact element={<Checkout/>}/>
           </Routes>
           <Footer/>
+          </StoreProvider>
         </>
       </Router>
     </ApolloProvider>
