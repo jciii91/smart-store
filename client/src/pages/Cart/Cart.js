@@ -48,21 +48,24 @@ const Cart = () => {
                 </Col>
                 <Col md={2}> {prod.price} $</Col>
                 <Col md={2}>
-                  <Form.Control
-                    as="select"
-                    value={prod.qty}
-                  >
-                    {[...Array(prod.inStock).keys()].map((x) => (
-                      <option key={x + 1}>{x + 1}</option>
-                    ))}
-                  </Form.Control>
+                  <Button
+                    type='button'
+                    variant='light'>
+                      <i className='fas fa-minus'></i>
+                  </Button>
+                  <span>  {prod.purchaseQuantity}   </span>
+                  <Button
+                    type='button'
+                    variant='light'>
+                      <i className='fas fa-plus'></i>
+                  </Button>
                 </Col>
                 <Col md={2}>
                   <Button
                     type="button"
                     variant="light"
                   >
-                      <i class="fas fa-trash-alt" fontSize="20px"></i>
+                    <i class="fas fa-trash-alt" fontSize="20px"></i>
                   </Button>
                 </Col>
               </Row>

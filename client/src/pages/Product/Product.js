@@ -19,11 +19,21 @@ export default function Products(){
     const [state, dispatch] = useStoreContext();
 
     const addToCart = () => {
-        dispatch({
-            type: ADD_TO_CART,
-            product: { ...state.product, purchaseQuantity: 1 }
-        });
-        idbPromise('cart', 'put', { ...state.product, purchaseQuantity: 1 });
+        const itemInCart = state.cart.find((cartItem) => cartItem.id === state.product.id);
+        if (itemInCart) {
+            dispatch({
+                type: UPDATE_CART_QUANTITY,
+                id: state.product.id,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+            });
+            idbPromise('cart', 'put', { ...state.product, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 });
+            } else {
+            dispatch({
+                type: ADD_TO_CART,
+                product: { ...state.product, purchaseQuantity: 1 }
+            });
+            idbPromise('cart', 'put', { ...state.product, purchaseQuantity: 1 });
+        }
     };
 
     return(

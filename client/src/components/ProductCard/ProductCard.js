@@ -42,11 +42,21 @@ export default function ProductCard({
   const [state, dispatch] = useStoreContext();
 
   const addToCart = () => {
-    dispatch({
-      type: ADD_TO_CART,
-      product: { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 }
-    });
-    idbPromise('cart', 'put', { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 });
+    const itemInCart = state.cart.find((cartItem) => cartItem.id === id);
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        id: id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+      });
+      idbPromise('cart', 'put', { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        product: { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 }
+      });
+      idbPromise('cart', 'put', { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 });
+    }
   };
 
   const updateProduct = () => {
