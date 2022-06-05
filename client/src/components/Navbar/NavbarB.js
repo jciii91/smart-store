@@ -4,6 +4,11 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 
 const AppNavbar = () => {
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    };
+
     const MenuItems = [
         {
             title: 'Smart Speakers & Displays',
@@ -100,7 +105,7 @@ const AppNavbar = () => {
             {Auth.loggedIn() ? (
                 <>
                 <Nav.Link href="cart">Cart</Nav.Link>
-                <Nav.Link href="/">Logout</Nav.Link>
+                <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
                 </>
             ) : (
                 <Nav.Link href="sign-up">Sign Up/Login</Nav.Link>
