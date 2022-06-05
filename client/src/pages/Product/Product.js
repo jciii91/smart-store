@@ -11,16 +11,20 @@ import {
     UPDATE_PRODUCTS,
 } from '../../utils/actions';
 
+import Auth from '../../utils/auth';
+import { idbPromise } from "../../utils/helpers";
+
 export default function Products(){
     const [color, setColor] = useState("#80CED7");
     const [state, dispatch] = useStoreContext();
 
-    // const addToCart = () => {
-    //     dispatch({
-    //         type: ADD_TO_CART,
-    //         product: { ...currentProduct, purchaseQuantity: 1 }
-    //     });
-    // };
+    const addToCart = () => {
+        dispatch({
+            type: ADD_TO_CART,
+            product: { ...state.product, purchaseQuantity: 1 }
+        });
+        idbPromise('cart', 'put', { ...state.product, purchaseQuantity: 1 });
+    };
 
     return(
         <Container>
@@ -43,11 +47,13 @@ export default function Products(){
                     <Row className="buttonRow">
                     <Col style={{ textAlign: "right" }}>
                         <p>Price: ${state.product.price}</p>
+                        {Auth.loggedIn() ? (
                         <a>
-                        <Button id="buy" variant="primary">
+                        <Button id="buy" variant="primary" onClick={addToCart}>
                             Buy Now
                         </Button>
                         </a>
+                        ) : (<></>)}
                     </Col>
                     </Row>
                 </Col>

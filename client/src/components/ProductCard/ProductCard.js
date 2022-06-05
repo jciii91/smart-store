@@ -17,6 +17,7 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_PRODUCTS } from '../../utils/actions';
 
 import Auth from '../../utils/auth';
+import { idbPromise } from "../../utils/helpers";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -45,6 +46,7 @@ export default function ProductCard({
       type: ADD_TO_CART,
       product: { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 }
     });
+    idbPromise('cart', 'put', { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 });
   };
 
   const updateProduct = () => {
