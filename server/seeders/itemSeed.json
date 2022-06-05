@@ -3,108 +3,144 @@
         "category": "Speakers",
         "name": "Echo Dot",
         "description": " the speaker you control with your voice",
-        "price": 50
+        "price": 50,
+        "rating": 5,
+        "filename": "EchoDot"
     },
     {
         "category": "Speakers",
         "name": "Google Nest",
         "description": " controls your smart home privately and securely",
-        "price": 50
+        "price": 50,
+        "rating": 4,
+        "filename": "GoogleNest"
     },
     {
-        "category": "Speaker",
+        "category": "Speakers",
         "name": "Google Home",
         "description": "It's powered by the Google Assistant, so you can ask it questions and tell it to do things",
-        "price": 55
+        "price": 55,
+        "rating": 5,
+        "filename": "GoogleHome"
     },
     {
-        "category": "Speaker",
+        "category": "Speakers",
         "name": "Apple HomePod mini",
         "description": "offers Siri voice assistance and smart home control in an attractive little orb design",
-        "price": 100
+        "price": 100,
+        "rating": 4,
+        "filename": "AppleHomePod"
     },
     {
-        "category": "Speaker",
+        "category": "Speakers",
         "name": "Sonos Move",
         "description": "a powerful multi-room smart speaker with Amazon Alexa and Google Assistant voice control, as well as a durable, battery-powered design you can use anywhere",
-        "price": 400
+        "price": 400,
+        "rating": 5,
+        "filename": "SonosMove"
     },
     {
         "category": "Doorbell",
         "name": "Ring",
         "description": "improved motion detection and enhanced wifi, you can keep an eye on what's happening anytime, from anywhere",
-        "price": 200
+        "price": 200,
+        "rating": 5,
+        "filename": "Ring"
     },
     {
         "category": "Doorbell",
         "name": "Google Nest Doorbell",
         "description": "See what's happening at your door from anywhere, and get alerts about important activity, like a visitor or package delivery",
-        "price": 180
+        "price": 180,
+        "rating": 4,
+        "filename": "GoogleNest"
     },
     {
         "category": "Doorbell",
-        "name": "Efuy Video Doorbell",
+        "name": "Eufy Video Doorbell",
         "description": "Wi-Fi Video Doorbell Kit, 1080p-Grade Resolution, 120-day Battery, No Monthly Fees, Human Detection, 2-Way Audio, Free Wireless Chime",
-        "price": 100
+        "price": 100,
+        "rating": 4,
+        "filename": "Eufy"
     },
     {
         "category": "Doorbell",
         "name": "Blink",
         "description": "Wired or wire free, Two way audio, HD video and Alexa Enabled",
-        "price": 50
+        "price": 50,
+        "rating": 3,
+        "filename": "Blink"
     },
     {
         "category": "Thermostat",
         "name": "Google Nest",
         "description": "Meet the Nest Thermostat, the helpful thermostat with a cozy price",
-        "price": 130
+        "price": 130,
+        "rating": 5,
+        "filename": "Nest"
     },
     {
         "category": "Thermostat",
         "name": "Ecobee3",
         "description": "The smarter Wi-Fi thermostat that delivers unparalleled value, control and comfort.",
-        "price": 150
+        "price": 150,
+        "rating": 3,
+        "filename": "Ecobee"
     },
     {
         "category": "Thermostat",
         "name": "Amazon Smart Thermostat",
         "description": "Alexa can do the programming for you, updating the temperature to keep you comfortable",
-        "price": 60
+        "price": 60,
+        "rating": 4,
+        "filename": "Amazon"
     },
     {
         "category": "Thermostat",
         "name": "Emerson Sensi",
         "description": "You can save about 23% of HVAC energy consumption with features like flexible scheduling, geofencing and remote access using your smartphone, tablet or PC",
-        "price": 170
+        "price": 170,
+        "rating": 4,
+        "filename": "EmersonSensi"
     },
     {
         "category": "Thermostat",
         "name": "Honeywell Home",
         "description": "Lets you choose the temperature, schedule, display color and the devices you use to control it all",
-        "price": 170
+        "price": 170,
+        "rating": 3,
+        "filename": "Honeywell"
     },
     {
         "category": "Lighting",
         "name": "Philips Hue",
         "description": "Get bright cool light, warm white light, and 16 million colors with the Philips Hue 75W A19 bulb",
-        "price": 55
+        "price": 55,
+        "rating": 5,
+        "filename": "PhilipsHue"
     },
     {
         "category": "Lighting",
         "name": "GE Cync",
         "description": "Use Cync Full Color Smart Bulb to change the vibe of any space in seconds",
-        "price": 23
+        "price": 23,
+        "rating": 4,
+        "filename": "GECync"
     },
     {
         "category": "Lighting",
         "name": "Ikea Tradfi",
         "description": "With a dimmable LED bulb you can adapt your lighting to different activities",
-        "price": 22
+        "price": 22,
+        "rating": 2,
+        "filename": "Tradfi"
     },
     {
         "category": "Lighting",
         "name": "Sengled",
         "description": "The three 800-lumen bulbs offer illumination for a maximum of 8 hours per charge, while the included smart switch lets you turn the light on and off easily.",
-        "price": 70
+        "price": 70,
+        "rating": 4,
+        "filename": "Sengled"
     }
 ]

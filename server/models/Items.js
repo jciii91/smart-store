@@ -16,6 +16,14 @@ const itemSchema = new Schema(
         },
         price: {
             type: Number
+        },
+        rating:{
+            type: Number,
+            require: true
+        },
+        filename:{
+            type: String,
+            reguire: true
         }
     }
 );
