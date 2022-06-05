@@ -8,9 +8,6 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     product: {},
     cart: [],
-    cartOpen: false,
-    categories: [],
-    currentCategory: '',
   });
   // use this to confirm it works!
   console.log(state);

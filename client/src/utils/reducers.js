@@ -18,17 +18,6 @@ export const reducer = (state, action) => {
         ...state,
         product: action.product
       };
-    // if action type value is the value of `UPDATE_CATEGORIES`, return a new state object with an updated categories array
-    case UPDATE_CATEGORIES:
-      return {
-        ...state,
-        categories: [...action.categories]
-      };
-    case UPDATE_CURRENT_CATEGORY:
-      return {
-        ...state,
-        currentCategory: action.currentCategory
-      };
     case ADD_TO_CART:
       return {
         ...state,
@@ -60,12 +49,6 @@ export const reducer = (state, action) => {
           }
           return product;
         })
-      };
-    case CLEAR_CART:
-      return {
-        ...state,
-        cartOpen: false,
-        cart: []
       };
 
     default:
