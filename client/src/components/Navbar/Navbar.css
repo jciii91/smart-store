@@ -1,148 +1,156 @@
-.navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
+.dropdown-menu.show {
+  width: auto !important;
+  display: block;
+}
+
+/* .navbar {
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%) !important;
+    height: 80px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 1.2rem !important;
   }
   
   .navbar-logo {
-    color: #fff;
-    justify-self: start;
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
+    color: #fff !important;
+    justify-self: start !important;
+    margin-left: 20px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    font-size: 2rem !important;
   }
   
   .fa-firstdraft {
-    margin-left: 0.5rem;
-    font-size: 1.6rem;
+    margin-left: 0.5rem !important;
+    font-size: 1.6rem !important;
   }
   
   .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
-    list-style: none;
-    text-align: center;
-    width: 70vw;
-    justify-content: end;
-    margin-right: 2rem;
+    display: grid !important;
+    grid-template-columns: repeat(5, auto) !important;
+    grid-gap: 10px !important;
+    list-style: none !important;
+    text-align: center !important;
+    width: 70vw !important;
+    justify-content: end !important;
+    margin-right: 2rem !important;
   }
   
   .nav-item {
-    display: flex;
-    align-items: center;
-    height: 80px;
+    display: flex !important;
+    height: 80px !important;
+  }
+
+  .padding{
+    padding-top: 1rem !important;
   }
   
   .nav-links {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 0.5rem 1rem !important;
   }
   
   .nav-links:hover {
-    background-color: #1888ff;
-    border-radius: 4px;
-    transition: all 0.2s ease-out;
+    background-color: #1888ff !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease-out !important;
   }
   
   .fa-bars {
-    color: #fff;
+    color: #fff !important;
   }
   
   .nav-links-mobile {
-    display: none;
+    display: none !important;
   }
   
   .menu-icon {
-    display: none;
+    display: none !important;
   }
   
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1092px) {
     .fa-caret-down{
-      display: none;
+      display: none !important;
     }
     .NavbarItems {
-      position: relative;
+      position: relative !important;
     }
   
     .nav-menu {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      position: absolute;
-      top: 80px;
-      left: -100%;
-      opacity: 1;
-      transition: all 0.5s ease;
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      position: absolute !important;
+      top: 80px !important;
+      left: -100% !important;
+      opacity: 1 !important;
+      transition: all 0.5s ease !important;
     }
   
     .nav-menu.active {
-      background: #242222;
-      left: 0;
-      opacity: 1;
-      transition: all 0.5s ease;
-      z-index: 1;
+      background: #242222 !important;
+      left: 0 !important;
+      opacity: 1 !important;
+      transition: all 0.5s ease !important;
+      z-index: 1 !important;
     }
   
     .nav-links {
-      text-align: center;
-      padding: 2rem;
-      width: 100%;
-      display: table;
+      text-align: center !important;
+      padding: 2rem !important;
+      width: 100% !important;
+      display: table !important;
     }
   
     .nav-links:hover {
-      background-color: #1888ff;
-      border-radius: 0;
+      background-color: #1888ff !important;
+      border-radius: 0 !important;
     }
   
     .navbar-logo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(25%, 50%);
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      transform: translate(25%, 50%) !important;
     }
   
     .menu-icon {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 60%);
-      font-size: 1.8rem;
-      cursor: pointer;
+      display: block !important;
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      transform: translate(-100%, 60%) !important;
+      font-size: 1.8rem !important;
+      cursor: pointer !important;
     }
   
     .fa-times {
-      color: #fff;
-      font-size: 2rem;
+      color: #fff !important;
+      font-size: 2rem !important;
     }
   
     .nav-links-mobile {
-      display: block;
-      text-align: center;
-      padding: 1.5rem;
-      margin: 2rem auto;
-      border-radius: 4px;
-      width: 80%;
-      background: #1888ff;
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.5rem;
+      display: block !important;
+      text-align: center !important;
+      padding: 1.5rem !important;
+      margin: 2rem auto !important;
+      border-radius: 4px !important;
+      width: 80% !important;
+      background: #1888ff !important;
+      text-decoration: none !important;
+      color: #fff !important;
+      font-size: 1.5rem !important;
     }
   
     .nav-links-mobile:hover {
-      background: #fff;
-      color: #1888ff;
-      transition: 250ms;
+      background: #fff !important;
+      color: #1888ff !important;
+      transition: 250ms !important;
     }
   
     button {
-      display: none;
+      display: none !important;
     }
-  }
+  } */

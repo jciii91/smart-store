@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './ProductCard.css'
+import { Link } from 'react-router-dom';
 
 
 const ExpandMore = styled((props) => {
@@ -24,7 +25,9 @@ const ExpandMore = styled((props) => {
     }),
   }));
 
-export default function ProductCard() {
+export default function ProductCard({
+    product: { id, title, categoryF, category , price, rating, description, img},
+}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -40,29 +43,33 @@ export default function ProductCard() {
           variant='h5'
           color='textSecondary'
           >
-              {899}
+              {price}$
           </Typography>
         }
-        title="Smart Speaker 2000"
-        subheader="Smart Speakers & Displays"
+        title={title}
+        subheader={categoryF}
       />
+      <Link className="modLink" to="/product">
+          View Details
+      </Link>
+
       <CardMedia className="media"
         component="img"
-        height="250"
-        image="https://xiaomimx.vtexassets.com/arquivos/ids/156907/Mi-Smart-Speaker-4.png?v=637601637325130000"
+        height="200"
+        image={img}
         alt="Speaker"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-            Smart Speakers & Displays
+            {category}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <AddShoppingCartIcon />
+        <IconButton aria-label="view">
+          <AddShoppingCartIcon href="/product"/>
         </IconButton>
         
-        {Array(4)
+        {Array(rating)
         .fill()
         .map((_, i) => (
             <p>&#11088;</p>
@@ -80,7 +87,7 @@ export default function ProductCard() {
         <CardContent>
           <Typography paragraph>Description:</Typography>
           <Typography paragraph>
-            This is an incredible speaker perfect to...
+            {description}
           </Typography>
         </CardContent>
       </Collapse>

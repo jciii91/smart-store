@@ -1,18 +1,13 @@
 .root{
-    max-width: 94%;
+    max-width: 94% !important;
+    height: 100%;
 }
 .action {
-    margin-top: " 1.5rem";
+    margin-top: " 1.5rem" !important;
 }
 .media{
     height: 60%;
-    padding-top: 1%;
-
-}
-
-.media{
-    max-height: 60%;
-    padding-top: 1%;
+    padding-top: 1% !important;
 
 }
 
@@ -24,4 +19,15 @@
 
 .expandOpen{
     transform: "rotate(180deg)"
+}
+
+img{
+    height: 315px !important;
+}
+
+.modLink{
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    padding-left: 1rem !important;
 }

@@ -3,15 +3,16 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar/Navbar';
 
 //import pages
 import Home from './pages/Home/Home';
-import CheckOut from './pages/CheckOut/CheckOut';
 import Login from './pages/Login/Login';
-import Products from './pages/Products/Products';
-import Search from './pages/Search/Search';
+import Product from './pages/Product/Product';
 import SignUp from './pages/SignUp/SignUp';
+import Footer from './components/Footer/Footer';
+import Cart from './pages/Cart/Cart';
+import AppNavbar from './components/Navbar/NavbarB';
+import Checkout from './pages/CheckOut/CheckOut';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,15 +38,18 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar/>
+          <AppNavbar/>
           <Routes>
             <Route path='/'  exact element={<Home/>}/>
-            <Route path='/check-out' exact element={<CheckOut/>}/>
+            <Route path='/:cat'  exact element={<Home/>}/>
+            <Route path='/home'  exact element={<Home/>}/>
             <Route path='/login'  exact element={<Login/>}/>
-            <Route path='/products'  exact element={<Products/>}/>
-            <Route path='/search'  exact element={<Search/>}/>
+            <Route path='/product'  exact element={<Product/>}/>
             <Route path='/sign-up'  exact element={<SignUp/>}/>
+            <Route path='/cart'  exact element={<Cart/>}/>
+            <Route path='/checkout'  exact element={<Checkout/>}/>
           </Routes>
+          <Footer/>
         </>
       </Router>
     </ApolloProvider>
