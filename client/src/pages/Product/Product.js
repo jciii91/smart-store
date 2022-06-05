@@ -5,17 +5,14 @@ import { CardMedia } from "@mui/material";
 
 import { useStoreContext } from '../../utils/GlobalState';
 import {
-    REMOVE_FROM_CART,
     UPDATE_CART_QUANTITY,
     ADD_TO_CART,
-    UPDATE_PRODUCTS,
 } from '../../utils/actions';
 
 import Auth from '../../utils/auth';
 import { idbPromise } from "../../utils/helpers";
 
 export default function Products(){
-    const [color, setColor] = useState("#80CED7");
     const [state, dispatch] = useStoreContext();
 
     const addToCart = () => {
@@ -43,15 +40,15 @@ export default function Products(){
                 <CardMedia className="image"
                     component="img"
                     height="200"
-                    image={state.product.img}
-                    alt="Ligth"
+                    image={process.env.PUBLIC_URL + `/assets/${state.product.category}/${state.product.filename}.jpg`}
+                    alt={state.product.category}
                 />
                 </Col>
                 <Col className="info">
-                    <h2>{state.product.title}</h2>
+                    <h2>{state.product.name}</h2>
                     <br />
                     <br />
-                    <h4>{state.product.categoryF}</h4>
+                    <h4>{state.product.category}</h4>
                     <br />
                     <p>{state.product.description}</p>
                     <Row className="buttonRow">

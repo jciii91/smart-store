@@ -31,7 +31,7 @@ const ExpandMore = styled((props) => {
   }));
 
 export default function ProductCard({
-    product: { id, name, category, price, rating, description, filename},
+    product: { _id, name, category, price, rating, description, filename},
 }) {
   const [expanded, setExpanded] = React.useState(false);
   
@@ -42,27 +42,27 @@ export default function ProductCard({
   const [state, dispatch] = useStoreContext();
 
   const addToCart = () => {
-    const itemInCart = state.cart.find((cartItem) => cartItem.id === id);
+    const itemInCart = state.cart.find((cartItem) => cartItem._id === _id);
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
-        id: id,
+        _id: _id,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
-      idbPromise('cart', 'put', { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 });
+      idbPromise('cart', 'put', { _id, name, category, category , price, rating, description, filename, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 });
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 }
+        product: { _id, name, category, category , price, rating, description, filename, purchaseQuantity: 1 }
       });
-      idbPromise('cart', 'put', { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { _id, name, category, category , price, rating, description, filename, purchaseQuantity: 1 });
     }
   };
 
   const updateProduct = () => {
     dispatch({
       type: UPDATE_PRODUCTS,
-      product: { id, title, categoryF, category , price, rating, description, img, purchaseQuantity: 1 }
+      product: { _id, name, category, category , price, rating, description, filename, purchaseQuantity: 1 }
     })
   }
 
@@ -78,7 +78,7 @@ export default function ProductCard({
               {price}$
           </Typography>
         }
-        title={title}
+        name={name}
         subheader={category}
       />
       <Link className="modLink" to="/product" onClick={updateProduct}>

@@ -1,13 +1,10 @@
 import { useReducer } from 'react';
 import {
   UPDATE_PRODUCTS,
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
   ADD_TO_CART,
   ADD_MULTIPLE_TO_CART,
   REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-  CLEAR_CART
+  UPDATE_CART_QUANTITY
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -21,7 +18,6 @@ export const reducer = (state, action) => {
     case ADD_TO_CART:
       return {
         ...state,
-        cartOpen: true,
         cart: [...state.cart, action.product]
       };
     case ADD_MULTIPLE_TO_CART:
@@ -31,20 +27,18 @@ export const reducer = (state, action) => {
       };
     case REMOVE_FROM_CART:
       let newState = state.cart.filter(product => {
-        return product.id !== action.id;
+        return product._id !== action._id;
       });
     
       return {
         ...state,
-        cartOpen: newState.length > 0,
         cart: newState
       };
     case UPDATE_CART_QUANTITY:
       return {
         ...state,
-        cartOpen: true,
         cart: state.cart.map(product => {
-          if (action.id === product.id) {
+          if (action._id === product._id) {
             product.purchaseQuantity = action.purchaseQuantity;
           }
           return product;

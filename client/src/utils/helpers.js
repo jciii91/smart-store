@@ -10,9 +10,8 @@ export function idbPromise(storeName, method, object) {
     request.onupgradeneeded = function(e) {
       const db = request.result;
       // create object store for each type of data and set "primary" key index to be the `_id` of the data
-      db.createObjectStore('product', { keyPath: 'id' });
-      db.createObjectStore('categories', { keyPath: 'id' });
-      db.createObjectStore('cart', { keyPath: 'id' });
+      db.createObjectStore('product', { keyPath: '_id' });
+      db.createObjectStore('cart', { keyPath: '_id' });
     };
 
     // handle any errors with connecting
@@ -46,7 +45,7 @@ export function idbPromise(storeName, method, object) {
           };
           break;
         case 'delete':
-          store.delete(object.id);
+          store.delete(object._id);
           break;
         default:
           console.log('No valid method');

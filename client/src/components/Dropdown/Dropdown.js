@@ -26,8 +26,4 @@ function Dropdown() {
 }
 
 
-<<<<<<< HEAD
 export default Dropdown;
-=======
-export default Dropdown;
->>>>>>> 2e0fcb6fd28a439352416c4d20870c9bcb2fc733

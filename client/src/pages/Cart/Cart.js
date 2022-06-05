@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Button, Col, Container, Form, Image, ListGroup, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Button, Col, Container, Image, ListGroup, Row } from "react-bootstrap";
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART, REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
@@ -39,21 +40,21 @@ const Cart = () => {
     if (operation === 'plus') {
       dispatch({
         type: UPDATE_CART_QUANTITY,
-        id: product.id,
+        _id: product._id,
         purchaseQuantity: parseInt(product.purchaseQuantity) + 1
       });
       idbPromise('cart', 'put', { ...product, purchaseQuantity: parseInt(product.purchaseQuantity) + 1 });
     } else if (operation === 'minus' && parseInt(product.purchaseQuantity) > 1) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
-        id: product.id,
+        _id: product._id,
         purchaseQuantity: parseInt(product.purchaseQuantity) - 1
       });
       idbPromise('cart', 'put', { ...product, purchaseQuantity: parseInt(product.purchaseQuantity) - 1 });
     } else {
       dispatch({
         type: REMOVE_FROM_CART,
-        id: product.id,
+        _id: product._id,
       });
       idbPromise('cart', 'delete', { ...product });
     }
@@ -62,9 +63,15 @@ const Cart = () => {
   function removeCartItem(product) {
     dispatch({
       type: REMOVE_FROM_CART,
-      id: product.id,
+      _id: product._id,
     });
     idbPromise('cart', 'delete', { ...product });
+  }
+
+  const navigate = useNavigate();
+  const routeChange = () => {
+    const path = `/checkout`;
+    navigate(path);
   }
 
   return (
@@ -78,10 +85,10 @@ const Cart = () => {
         <div className="productContainer">
         <ListGroup>
           {cart.map((prod) => (
-            <ListGroup.Item key={prod.id}>
+            <ListGroup.Item key={prod._id}>
               <Row>
                 <Col md={2}>
-                  <Image className='cartImg' src={prod.img} alt={prod.name} fluid rounded />
+                  <Image className='cartImg' src={`assets/${prod.category}/${prod.filename}.jpg`} alt={prod.category} fluid rounded />
                 </Col>
                 <Col md={2}>
                   <span>{prod.name}</span>
@@ -119,7 +126,7 @@ const Cart = () => {
       <div className="filters summary">
         <p className="title">Subtotal ({countItems()}) items</p>
         <p style={{ fontWeight: 700, fontSize: 20 }}>Total: ${calculateTotal()}</p>
-        <Button type="button" disabled={cart.length === 0}>
+        <Button type="button" disabled={cart.length === 0} onClick={routeChange}>
           Proceed to Checkout
         </Button>
       </div>
