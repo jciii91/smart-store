@@ -1,0 +1,142 @@
+.App {
+    height: 100vh !important;
+    display: flex !important;
+    color: white !important;
+  }
+  
+  .appAside {
+    width: 50%;
+    background-color: #6b5b95 !important;
+  }
+  
+  .appForm {
+    width: 50% !important;
+    background-color: #12130f !important;
+    padding: 25px 40px !important;
+    overflow: auto !important;
+  }
+  
+  .pageSwitcher {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-bottom: 10% !important;
+  }
+  
+  .pageSwitcherItem {
+    background-color: #40434e !important;
+    color: #9da6b1 !important;
+    padding: 10px 25px !important;
+    cursor: pointer !important;
+    font-size: 0.9em !important;
+    border: none !important;
+    outline: none !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+  }
+  
+  .pageSwitcherItem-active {
+    background-color: #6b5b95 !important;
+    color: white !important;
+  }
+  
+  .pageSwitcherItem:first-child {
+    border-top-left-radius: 25px !important;
+    border-bottom-left-radius: 25px !important;
+  }
+  .pageSwitcherItem:last-child {
+    border-top-right-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+  }
+
+.formCenter {
+    margin-bottom: 100px !important;
+  }
+  
+  .formTitle {
+    color: #707c8b;
+    font-weight: 300 !important;
+    margin-bottom: 50px !important;
+  }
+  
+  .formTitleLink {
+    color: #707c8b !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 1.7em !important;
+    margin: 0 10px !important;
+    padding-bottom: 5px !important;
+  }
+  
+  .formTitleLink:first-child {
+    margin-left: 0 !important;
+  }
+  
+  .formTitleLink-active {
+    color: white;
+    border-bottom: 1px solid #6b5b95 !important;
+  }
+  
+  .formField {
+    margin-bottom: 40px !important;
+  }
+  
+  .formFieldLabel {
+    display: block !important;
+    text-transform: uppercase !important;
+    font-size: 0.9em !important;
+    color: white !important;
+  }
+  .formFieldInput {
+    width: 85%;
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important;
+    outline: none !important;
+    border-bottom: 1px solid #445366 !important;
+    font-size: 1em !important;
+    font-weight: 300 !important;
+    padding-bottom: 10px !important;
+    margin-top: 10px !important;
+  }
+  
+  .formFieldInput::placeholder {
+    color: #616e7f !important;
+  }
+  
+  .formFieldButton {
+    background-color: #6b5b95 !important;
+    color: white !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 25px !important;
+    padding: 15px 70px !important;
+    font-size: 0.8em !important;
+    font-weight: 500 !important;
+  }
+  
+  .formFieldLink {
+    color: #66707d !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    border-bottom: 1.5px solid #6b5b95 !important;
+    padding-bottom: 5px !important;
+  }
+  
+  .formFieldCheckboxLabel {
+    color: #646f7d !important;
+    font-size: 0.9em !important;
+  }
+  
+  .formFieldCheckbox {
+    position: relative !important;
+    top: 1.5px !important;
+  }
+  
+  .formFieldTermsLink {
+    color: white !important;
+    border-bottom: 1px solid #6b5b95 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    padding-bottom: 2px !important;
+    margin-left: 5px !important;
+  }

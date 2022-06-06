@@ -5,20 +5,22 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "seed": "node seeders/seeds.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^3.7.0",
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "graphql": "^15.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.10"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "@apollo/rover": "^0.6.0",
+    "nodemon": "^2.0.16"
   }
 }
