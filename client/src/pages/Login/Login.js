@@ -1,44 +1,51 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from '@apollo/client';
 import './Login.css'
 
-class Login extends Component {
-  constructor() {
-    super();
+import { LOGIN_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-    this.state = {
-      email: "",
-      password: ""
-    };
+const LoginForm = () => {
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
 
-  handleChange(event) {
-    let target = event.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleSubmit(event) {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
-  }
+    if (!(userFormData.email && userFormData.password)) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
 
-  render() {
-    return (
+    try {
+      const { data } = await login({
+        variables: { ...userFormData }
+      });
+
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      email: '',
+      password: '',
+    });
+  };
+
+  return (
     <div className="App">
         <div className="appAside" />
         <div className="appForm">
       <div className="formCenter">
-        <form className="formFields" onSubmit={this.handleSubmit}>
+        <form className="formFields" onSubmit={handleFormSubmit}>
           <div className="formField">
             <label className="formFieldLabel" htmlFor="email">
               E-Mail Address
@@ -49,8 +56,8 @@ class Login extends Component {
               className="formFieldInput"
               placeholder="Enter your email"
               name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
+              value={userFormData.email}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -64,8 +71,8 @@ class Login extends Component {
               className="formFieldInput"
               placeholder="Enter your password"
               name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
+              value={userFormData.password}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -74,14 +81,14 @@ class Login extends Component {
             <Link to="/sign-up" className="formFieldLink">
               Create an account
             </Link>
+            {error && <div>Incorrect login credentials</div>}
           </div>
 
         </form>
       </div>
       </div>
       </div>
-    );
-  }
-}
+  );
+};
 
-export default Login;
+export default LoginForm;

@@ -11,7 +11,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './ProductCard.css'
+import { Link } from 'react-router-dom';
 
+import { useStoreContext } from '../../utils/GlobalState';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_PRODUCTS } from '../../utils/actions';
+
+import Auth from '../../utils/auth';
+import { idbPromise } from "../../utils/helpers";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -25,13 +31,40 @@ const ExpandMore = styled((props) => {
   }));
 
 export default function ProductCard({
-    product: { id, name, category, price, rating, description, filename},
+    product: { _id, name, category, price, rating, description, filename},
 }) {
   const [expanded, setExpanded] = React.useState(false);
   
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const [state, dispatch] = useStoreContext();
+
+  const addToCart = () => {
+    const itemInCart = state.cart.find((cartItem) => cartItem._id === _id);
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: _id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+      });
+      idbPromise('cart', 'put', { _id, name, category , price, rating, description, filename, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        product: { _id, name, category , price, rating, description, filename, purchaseQuantity: 1 }
+      });
+      idbPromise('cart', 'put', { _id, name, category , price, rating, description, filename, purchaseQuantity: 1 });
+    }
+  };
+
+  const updateProduct = () => {
+    dispatch({
+      type: UPDATE_PRODUCTS,
+      product: { _id, name, category, price, rating, description, filename, purchaseQuantity: 1 }
+    })
+  }
 
   return (
     <Card className="root">
@@ -45,13 +78,17 @@ export default function ProductCard({
               {price}$
           </Typography>
         }
-        title={name}
-        subheader={category}
+        name={name}
+        subheader={name}
       />
+      <Link className="modLink" to="/product" onClick={updateProduct}>
+          View Details
+      </Link>
+
       <CardMedia className="media"
         component="img"
         height="200"
-        image= {process.env.PUBLIC_URL + `/assets/${category}/${filename}.jpg`}
+        image={process.env.PUBLIC_URL + `/assets/${category}/${filename}.jpg`}
         alt={category}
       />
       <CardContent>
@@ -60,9 +97,11 @@ export default function ProductCard({
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <AddShoppingCartIcon />
-        </IconButton>
+        {Auth.loggedIn() ? (
+          <IconButton aria-label="view" onClick={addToCart}>
+            <AddShoppingCartIcon />
+          </IconButton>
+        ) : (<></>)}
         
         {Array(rating)
         .fill()

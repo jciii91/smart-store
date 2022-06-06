@@ -3,7 +3,8 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar/Navbar';
+
+import { StoreProvider } from "./utils/GlobalState";
 
 //import pages
 import Home from './pages/Home/Home';
@@ -12,6 +13,8 @@ import Product from './pages/Product/Product';
 import SignUp from './pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
+import Navbar from './components/Navbar/Navbar';
+import Checkout from './pages/CheckOut/CheckOut';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,15 +40,20 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
+          <StoreProvider>
           <Navbar/>
           <Routes>
             <Route path='/'  exact element={<Home/>}/>
+            <Route path='/:cat'  exact element={<Home/>}/>
+            <Route path='/home'  exact element={<Home/>}/>
             <Route path='/login'  exact element={<Login/>}/>
-            <Route path='/products'  exact element={<Product/>}/>
+            <Route path='/product'  exact element={<Product/>}/>
             <Route path='/sign-up'  exact element={<SignUp/>}/>
             <Route path='/cart'  exact element={<Cart/>}/>
+            <Route path='/checkout'  exact element={<Checkout/>}/>
           </Routes>
           <Footer/>
+          </StoreProvider>
         </>
       </Router>
     </ApolloProvider>

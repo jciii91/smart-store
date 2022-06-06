@@ -84,3 +84,7 @@
 .shopTitle{
   padding-top: 2rem !important;
 }
+
+.bg-dark {
+  background-color: #1a1c1f!important;
+}

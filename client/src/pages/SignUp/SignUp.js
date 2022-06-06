@@ -1,46 +1,59 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from '@apollo/client';
 import './SignUp.css'
 
-class SignUp extends Component {
-  constructor() {
-    super();
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-    this.state = {
-      email: "",
-      password: "",
-      name: "",
+const SignupForm = () => {
+  // set initial form state
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', hasAgreed: false });
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  const handleInputChange = (event) => {
+    if (event.target.name === 'hasAgreed') {
+      const { name } = event.target;
+      setUserFormData({ ...userFormData, [name]: event.target.checked });
+    } else {
+      const { name, value } = event.target;
+      setUserFormData({ ...userFormData, [name]: value });
+    }
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    if (userFormData.hasAgreed === false) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData }
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
       hasAgreed: false
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    let target = event.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
-
-    this.setState({
-      [name]: value
     });
-  }
+  };
 
-  handleSubmit(e) {
-    e.preventDefault();
-
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
-  }
-
-  render() {
-    return (
-        <div className="App">
+  return (
+    <div className="App">
         <div className="appAside" />
         <div className="appForm">
       <div className="formCenter">
-        <form onSubmit={this.handleSubmit} className="formFields">
+        <form onSubmit={handleFormSubmit} className="formFields">
           <div className="formField">
             <label className="formFieldLabel" htmlFor="name">
               Full Name
@@ -50,9 +63,9 @@ class SignUp extends Component {
               id="name"
               className="formFieldInput"
               placeholder="Enter your full name"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
+              name="username"
+              value={userFormData.username}
+              onChange={handleInputChange}
             />
           </div>
           <div className="formField">
@@ -65,8 +78,8 @@ class SignUp extends Component {
               className="formFieldInput"
               placeholder="Enter your password"
               name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
+              value={userFormData.password}
+              onChange={handleInputChange}
             />
           </div>
           <div className="formField">
@@ -79,8 +92,8 @@ class SignUp extends Component {
               className="formFieldInput"
               placeholder="Enter your email"
               name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
+              value={userFormData.email}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -90,8 +103,8 @@ class SignUp extends Component {
                 className="formFieldCheckbox"
                 type="checkbox"
                 name="hasAgreed"
-                value={this.state.hasAgreed}
-                onChange={this.handleChange}
+                checked={userFormData.hasAgreed}
+                onChange={handleInputChange}
               />{" "}
               I agree all statements in{" "}
               <a href="null" className="formFieldTermsLink">
@@ -105,12 +118,13 @@ class SignUp extends Component {
             <Link to="/login" className="formFieldLink">
               I'm already member
             </Link>
+            {error && <div>Sign up failed</div>}
           </div>
         </form>
       </div>
       </div>
       </div>
-    );
-  }
-}
-export default SignUp;
+  );
+};
+
+export default SignupForm;
