@@ -2,7 +2,8 @@ import React from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { Grid } from "@mui/material";
 import './Home.css';
-
+import Slider from '../../components/Slider/Slider';
+import { SliderData } from '../../components/Slider/Sliderdata';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ITEMS } from "../../utils/queries";
@@ -12,8 +13,8 @@ const Home = () => {
     const Products = data?.items || [];
 
     return(
-        <>
-            <h1 className="home">Home</h1>
+        <div>
+            <Slider slides={SliderData}/>
 
             <div className="rootH">
             <Grid container rowSpacing={1} columnSpacing={1}>
@@ -28,7 +29,7 @@ const Home = () => {
                 }
             </Grid>
             </div>
-        </>
+        </div>
     )
 }
 
