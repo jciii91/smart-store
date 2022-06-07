@@ -1,4 +1,4 @@
-.dropdown-menu.show {
+ .dropdown-menu.show {
   width: auto !important;
   display: flex;
   justify-content: space-around;
@@ -152,4 +152,4 @@
     button {
       display: none !important;
     }
-  } 
+  }  

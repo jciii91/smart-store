@@ -10,6 +10,7 @@
     padding-left: 2%;
     padding-top: 3%;
     padding-bottom: 2%;
+    
 }
 
 .slider {
@@ -17,12 +18,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    
 }
 
 .image2{
     width: 1500px;
     height: 600px !important;
     border-radius: 10px;
+    
 }
 
 .right-arrow{
@@ -50,10 +54,12 @@
 .slide{
     opacity: 1;
     transition-duration: 1s ease;
+
 }
 
 .slide.active{
     opacity: 1;
     transition-duration: 1s;
     transform: scale(1.02);
+    
 }

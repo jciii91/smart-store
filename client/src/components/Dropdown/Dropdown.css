@@ -1,27 +1,30 @@
 .dropdown-menu{
-    width: 200px !important;
-    position: absolute !important;
-    top:80px !important;
+    width: 100% !important;
+    position: relative !important;
+    top: 40% !important;
     list-style: none !important;
-    text-align: start !important;
+    
+    display:block!important;
 }
 
-.dropdown-menu li{
+.dropdown-menu {
     background: #1888ff !important;
-    width: 180% !important;
+    
+    
     cursor: pointer !important;
 }
 
-.dropdown-menu li:hover{
+.dropdown-menu :hover{
     background: #5cabff !important;
 }
 
 .dropdown-menu.clicked{
     display: none !important;
+    
 }
 
 .dropdown-link{
-    display: block !important;
+    display: flex !important;
     width: 100% !important;
     height: 100% !important;
     text-decoration: none !important;

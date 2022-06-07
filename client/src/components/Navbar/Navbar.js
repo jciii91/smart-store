@@ -54,8 +54,9 @@ function Navbar () {
                     <Link to='/categories' className="nav-links" onClick={closeMobileMenu}>
                         Categories
                         <i className="fas fa-caret-down"/>
+                        {dropdown &&<Dropdown/>}
                     </Link>
-                   {dropdown&&<Dropdown/>}
+                   
                 </li>
                 <li className="nav-item">
                 {Auth.loggedIn() ? (
