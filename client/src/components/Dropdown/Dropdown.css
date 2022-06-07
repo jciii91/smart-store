@@ -1,9 +1,10 @@
 .dropdown-menu{
     width: 200px !important;
-    position: absolute !important;
+    position: relative !important;
     top:80px !important;
     list-style: none !important;
     text-align: start !important;
+    display: block !important;
 }
 
 .dropdown-menu li{
