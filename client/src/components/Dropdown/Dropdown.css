@@ -4,7 +4,7 @@
     top:80px !important;
     list-style: none !important;
     text-align: start !important;
-    display: block !important;
+    display: inline-block !important;
 }
 
 .dropdown-menu li{
