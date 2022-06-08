@@ -19,7 +19,7 @@ SO THAT I can shop.
 
 <a href="https://boiling-wave-89025.herokuapp.com/">Smart Store</a>
 
-<img src="/Users/oliviakim96/Desktop/Rutgers/smart-store/screenshot.png" width="400px" height="400px">
+<img width="1103" alt="image" src="https://user-images.githubusercontent.com/96153408/172506009-7ee164c3-4135-4d53-a254-0c02e4729c1e.png">
 
 
 ## Contributors
